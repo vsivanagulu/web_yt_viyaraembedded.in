@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import ServicesIntro from './components/ServicesIntro';
@@ -18,6 +18,7 @@ import ViyaraQcs6490Sbc from './components/Products/ViyaraQcs6490Sbc';
 import WhatWeDo from './components/WhatWeDo';
 import Clients from './components/Clients';
 import WhatsAppFAB from './components/WhatsAppFAB';
+import ScrollToTopButton from './components/ScrollToTopButton';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -54,6 +55,7 @@ const PageLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         {children}
       </main>
       <WhatsAppFAB />
+      <ScrollToTopButton />
       <Footer />
     </div>
   );

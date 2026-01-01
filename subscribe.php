@@ -41,31 +41,47 @@ if ($conn->connect_error) {
 // Get JSON input
 $input = json_decode(file_get_contents("php://input"), true);
 
-if (!$input) {
+if (!$input || !isset($input['email'])) {
     http_response_code(400);
     echo json_encode(["status" => "error", "message" => "Invalid JSON input"]);
     $conn->close();
     exit;
 }
 
-// Extract data (no manual escaping needed with prepared statements)
-$firstName = isset($input['firstName']) ? $input['firstName'] : '';
-$lastName = isset($input['lastName']) ? $input['lastName'] : '';
-$email = isset($input['email']) ? $input['email'] : '';
-$interest = isset($input['interest']) ? $input['interest'] : '';
-$message = isset($input['message']) ? $input['message'] : '';
+// Extract data
+$email = $input['email'];
 
-// Validation (basic)
-if (empty($firstName) || empty($email) || empty($message)) {
+// Validation
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     http_response_code(400);
-    echo json_encode(["status" => "error", "message" => "Missing required fields"]);
+    echo json_encode(["status" => "error", "message" => "Invalid email format"]);
     $conn->close();
     exit;
 }
 
-// Insert into database using Prepared Statement
-$stmt = $conn->prepare("INSERT INTO contacts (first_name, last_name, email, interest, message, created_at) VALUES (?, ?, ?, ?, ?, NOW())");
+// Check if email already exists using Prepared Statement
+$stmt = $conn->prepare("SELECT id FROM subscribers WHERE email = ?");
+if ($stmt === false) {
+    http_response_code(500);
+    echo json_encode(["status" => "error", "message" => "Prepare failed: " . $conn->error]);
+    $conn->close();
+    exit;
+}
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$stmt->store_result();
 
+if ($stmt->num_rows > 0) {
+    http_response_code(409); // Conflict
+    echo json_encode(["status" => "error", "message" => "Email already subscribed"]);
+    $stmt->close();
+    $conn->close();
+    exit;
+}
+$stmt->close();
+
+// Insert into database using Prepared Statement
+$stmt = $conn->prepare("INSERT INTO subscribers (email, created_at) VALUES (?, NOW())");
 if ($stmt === false) {
     http_response_code(500);
     echo json_encode(["status" => "error", "message" => "Prepare failed: " . $conn->error]);
@@ -73,14 +89,14 @@ if ($stmt === false) {
     exit;
 }
 
-$stmt->bind_param("sssss", $firstName, $lastName, $email, $interest, $message);
+$stmt->bind_param("s", $email);
 
 if ($stmt->execute()) {
     http_response_code(200);
-    echo json_encode(["status" => "success", "message" => "Message sent successfully"]);
+    echo json_encode(["status" => "success", "message" => "Successfully subscribed!"]);
 } else {
     http_response_code(500);
-    echo json_encode(["status" => "error", "message" => "Error storing message: " . $stmt->error]);
+    echo json_encode(["status" => "error", "message" => "Error processing subscription: " . $stmt->error]);
 }
 
 $stmt->close();
