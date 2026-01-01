@@ -1,0 +1,112 @@
+
+.clients-section {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: var(--slate-900);
+  border-top: 1px solid var(--slate-800);
+  overflow: hidden;
+}
+
+.clients-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) { .clients-container { padding: 0 1.5rem; } }
+@media (min-width: 1024px) { .clients-container { padding: 0 2rem; } }
+
+.clients-label {
+  text-align: center;
+  color: var(--blue-400);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 3rem;
+  
+  /* Rounded Badge Style */
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(30, 41, 59, 0.5); /* slate-800/50 */
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  border: 1px solid var(--slate-700);
+}
+
+.clients-scroll-area {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Masks */
+.mask-left, .mask-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2rem;
+  z-index: 10;
+  pointer-events: none;
+}
+@media (min-width: 768px) { 
+  .mask-left, .mask-right { width: 6rem; } 
+}
+
+.mask-left {
+  left: 0;
+  background: linear-gradient(to right, var(--slate-900), transparent);
+}
+.mask-right {
+  right: 0;
+  background: linear-gradient(to left, var(--slate-900), transparent);
+}
+
+.clients-track {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  width: max-content;
+}
+
+/* Animation */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+.client-item {
+  flex-shrink: 0;
+  opacity: 0.6;
+  filter: grayscale(100%);
+  transition: all 0.3s;
+}
+
+.client-item:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+}
+
+.client-logo {
+  height: 2.5rem;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0.75);
+  transition: all 0.3s;
+}
+
+@media (min-width: 768px) { .client-logo { height: 3rem; } }
+
+.client-item:hover .client-logo {
+  filter: brightness(1);
+}
