@@ -7,7 +7,7 @@ import './Contact.css';
 const Contact: React.FC = () => {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
-  
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -15,6 +15,9 @@ const Contact: React.FC = () => {
     interest: 'Custom Board Support Package',
     message: ''
   });
+
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -24,23 +27,41 @@ const Contact: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Construct the email subject and body
-    const subject = `Inquiry: ${formData.interest} - ${formData.firstName} ${formData.lastName}`;
-    const body = `Name: ${formData.firstName} ${formData.lastName}
-Email: ${formData.email}
-Interest: ${formData.interest}
+    setStatus('submitting');
+    setErrorMessage('');
 
-Message:
-${formData.message}`;
+    try {
+      const response = await fetch('/contact.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    // Create mailto link
-    const mailtoLink = `mailto:contact@viyaraembedded.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    // Open email client
-    window.location.href = mailtoLink;
+      const result = await response.json();
+
+      if (response.ok && result.status === 'success') {
+        setStatus('success');
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          interest: 'Custom Board Support Package',
+          message: ''
+        });
+        setTimeout(() => setStatus('idle'), 5000); // Reset status after 5 seconds
+      } else {
+        setStatus('error');
+        setErrorMessage(result.message || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setStatus('error');
+      setErrorMessage('Failed to connect to the server. Please check your internet connection.');
+    }
   };
 
   return (
@@ -48,11 +69,11 @@ ${formData.message}`;
       {/* Header Section */}
       {isHomePage ? (
         <div className="contact-home-header">
-           <span className="contact-hero-badge">Get In Touch</span>
-           <h2 className="contact-hero-title">Start Your Next Project</h2>
-           <p className="contact-hero-subtitle">
-             Ready to optimize your hardware with custom software solutions? Reach out to us for a consultation or quote.
-           </p>
+          <span className="contact-hero-badge">Get In Touch</span>
+          <h2 className="contact-hero-title">Start Your Next Project</h2>
+          <p className="contact-hero-subtitle">
+            Ready to optimize your hardware with custom software solutions? Reach out to us for a consultation or quote.
+          </p>
         </div>
       ) : (
         <div className="contact-hero">
@@ -80,7 +101,7 @@ ${formData.message}`;
             <p className="contact-info-desc">
               We are always open to discussing new projects, creative ideas or opportunities to be part of your visions.
             </p>
-            
+
             <div className="contact-details">
               <div className="contact-detail-item">
                 <div className="contact-icon-box">
@@ -91,7 +112,7 @@ ${formData.message}`;
                   <p className="contact-value">contact@viyaraembedded.in</p>
                 </div>
               </div>
-              
+
               <div className="contact-detail-item">
                 <div className="contact-icon-box">
                   <Phone />
@@ -101,7 +122,7 @@ ${formData.message}`;
                   <p className="contact-value">+91 99666 35312</p>
                 </div>
               </div>
-              
+
               <div className="contact-detail-item">
                 <div className="contact-icon-box">
                   <MapPin />
@@ -120,44 +141,44 @@ ${formData.message}`;
               <div className="form-group-row">
                 <div>
                   <label className="form-label">First Name</label>
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     name="firstName"
                     value={formData.firstName}
                     onChange={handleChange}
-                    className="form-input" 
-                    placeholder="John" 
+                    className="form-input"
+                    placeholder="John"
                     required
                   />
                 </div>
                 <div>
                   <label className="form-label">Last Name</label>
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     name="lastName"
                     value={formData.lastName}
                     onChange={handleChange}
-                    className="form-input" 
-                    placeholder="Doe" 
+                    className="form-input"
+                    placeholder="Doe"
                     required
                   />
                 </div>
               </div>
               <div className="form-group">
                 <label className="form-label">Email</label>
-                <input 
-                  type="email" 
+                <input
+                  type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="form-input" 
-                  placeholder="john@company.com" 
+                  className="form-input"
+                  placeholder="john@company.com"
                   required
                 />
               </div>
               <div className="form-group">
                 <label className="form-label">Interest</label>
-                <select 
+                <select
                   name="interest"
                   value={formData.interest}
                   onChange={handleChange}
@@ -171,18 +192,31 @@ ${formData.message}`;
               </div>
               <div className="form-group">
                 <label className="form-label">Message</label>
-                <textarea 
-                  rows={4} 
+                <textarea
+                  rows={4}
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  className="form-textarea" 
+                  className="form-textarea"
                   placeholder="Tell us about your project..."
                   required
                 ></textarea>
               </div>
-              <button type="submit" className="submit-btn">
-                Send Message
+
+              {status === 'success' && (
+                <div className="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
+                  <span className="font-medium">Success!</span> Your message has been sent successfully. We will get back to you soon.
+                </div>
+              )}
+
+              {status === 'error' && (
+                <div className="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+                  <span className="font-medium">Error!</span> {errorMessage}
+                </div>
+              )}
+
+              <button type="submit" className="submit-btn" disabled={status === 'submitting'}>
+                {status === 'submitting' ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </div>
