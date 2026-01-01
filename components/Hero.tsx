@@ -5,6 +5,21 @@ import './Hero.css';
 
 const Hero: React.FC = () => {
   const navigate = useNavigate();
+  const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
+
+  // Use product images for the slider
+  const sliderImages = [
+    { src: "/images/viyara-imx6ull-g.webp", label: "i.MX6ULL SBC" },
+    { src: "/images/viyara-imx9-g.webp", label: "i.MX9 AI Kit" },
+    { src: "/images/ve-imx8mv2.webp", label: "i.MX8M Nano" }
+  ];
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % sliderImages.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [sliderImages.length]);
 
   const techBadges = [
     { text: "Embedded Linux BSP Porting", positionClass: "badge-1", sizeStyle: { width: '8rem', height: '8rem' }, delay: "0s" },
@@ -21,7 +36,7 @@ const Hero: React.FC = () => {
       <div className="hero-bg-pattern" aria-hidden="true">
         <div className="hero-bg-dots"></div>
       </div>
-      
+
       <div className="hero-container">
         <div className="hero-content">
           <div className="hero-badge">
@@ -38,7 +53,7 @@ const Hero: React.FC = () => {
           </p>
           <div className="hero-actions">
             <div className="hero-buttons">
-              <button 
+              <button
                 onClick={() => navigate('/products')}
                 className="btn-primary"
                 aria-label="View our products"
@@ -46,7 +61,7 @@ const Hero: React.FC = () => {
                 View Products
                 <ArrowRight className="ml-2 w-5 h-5" aria-hidden="true" />
               </button>
-              <button 
+              <button
                 onClick={() => navigate('/services')}
                 className="btn-secondary"
                 aria-label="Explore our services"
@@ -54,60 +69,70 @@ const Hero: React.FC = () => {
                 Explore Services
               </button>
             </div>
-            
+
             <button
-               onClick={() => navigate('/contact')}
-               className="quote-link"
-               aria-label="Request a custom quote"
+              onClick={() => navigate('/contact')}
+              className="quote-link"
+              aria-label="Request a custom quote"
             >
               <Mail className="w-4 h-4" />
               Request a Quote
             </button>
           </div>
         </div>
-        
+
         <div className="hero-visual" aria-hidden="true">
           <div className="visual-container">
-            
-            {/* Floating Circular Badges */}
-            {techBadges.map((badge, idx) => (
-              <div 
-                key={idx}
-                className={`floating-badge animate-float-badge ${badge.positionClass}`}
-                style={{ ...badge.sizeStyle, animationDelay: badge.delay }}
-              >
-                <span className="floating-badge-text">{badge.text}</span>
-              </div>
-            ))}
 
-            {/* Abstract PCB Illustration Representation */}
+            {/* Hardware Image Slider */}
             <div className="visual-glow"></div>
-            <div className="code-card">
-              <div className="code-header">
-                <span className="filename">sys_init.c</span>
-                <div className="window-controls">
-                  <div className="control-dot dot-red"></div>
-                  <div className="control-dot dot-yellow"></div>
-                  <div className="control-dot dot-green"></div>
-                </div>
+            <div className="hero-slider-card group">
+
+              {/* Slider Content */}
+              <div className="slider-content">
+                {sliderImages.map((img, idx) => (
+                  <div
+                    key={idx}
+                    className={`slide-item ${idx === currentImageIndex ? 'active' : 'inactive'}`}
+                  >
+                    <img
+                      src={img.src}
+                      alt={img.label}
+                      className="slide-image"
+                    />
+                    <div className="slide-label">
+                      {img.label}
+                    </div>
+                  </div>
+                ))}
               </div>
-              <div className="code-content">
-                <div className="flex"><span className="line-num">01</span><span>import <span className="kw-import">viyara_kernel</span></span></div>
-                <div className="flex"><span className="line-num">02</span><span></span></div>
-                <div className="flex"><span className="line-num">03</span><span>func <span className="kw-func">init_hardware</span>() {'{'}</span></div>
-                <div className="flex"><span className="line-num">04</span><span className="pl-4">imx_config = <span className="kw-new">new</span> Config()</span></div>
-                <div className="flex"><span className="line-num">05</span><span className="pl-4">yocto_layer.build()</span></div>
-                <div className="flex"><span className="line-num">06</span><span className="pl-4">return <span className="kw-const">READY</span></span></div>
-                <div className="flex"><span className="line-num">07</span><span>{'}'}</span></div>
-              </div>
-              <div className="code-footer">
-                <div className="status-indicator">
-                  <div className="status-avatar av-os">OS</div>
-                  <div className="status-avatar av-hw">HW</div>
-                </div>
-                <span className="status-text">System Ready</span>
+
+              {/* Slider Indicators */}
+              <div className="slider-indicators">
+                {sliderImages.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setCurrentImageIndex(idx)}
+                    className={`indicator-dot ${idx === currentImageIndex ? 'active' : 'inactive'}`}
+                    aria-label={`Go to slide ${idx + 1}`}
+                  />
+                ))}
               </div>
             </div>
+
+            {/* Tech Badges Grid below Slider */}
+            <div className="badges-grid">
+              {techBadges.map((badge, idx) => (
+                <div
+                  key={idx}
+                  className="floating-badge animate-float-badge"
+                  style={{ animationDelay: badge.delay }}
+                >
+                  <span className="floating-badge-text">{badge.text}</span>
+                </div>
+              ))}
+            </div>
+
           </div>
         </div>
       </div>

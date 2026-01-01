@@ -36,7 +36,7 @@ export const PRODUCTS: Product[] = [
     name: "Viyara i.MX6ULL SBC",
     tagline: "Industrial Grade Efficiency",
     specs: ["ARM Cortex-A7 @ 900MHz", "Low Power Consumption", "Industrial Temp Range", "Connectivity: CAN, UART, Ethernet"],
-    image: "https://yoctotutor.com/images/Trainings-siva/viyara-6ull_GREEN.webp",
+    image: "/images/viyara-imx6ull-g.webp",
     badge: "Best Seller"
   },
   {
@@ -44,7 +44,7 @@ export const PRODUCTS: Product[] = [
     name: "Viyara i.MX8M Nano SBC",
     tagline: "Cost-Effective Audio & Media",
     specs: ["Quad-core ARM Cortex-A53", "Cortex-M7 Real-time Core", "3D/2D GPU Acceleration", "Advanced Audio Interfaces"],
-    image: "https://yoctotutor.com/images/viyara-images/ve-imx8mv2.png",
+    image: "/images/ve-imx8mv2.webp",
     badge: "Featured"
   },
   {
@@ -52,7 +52,7 @@ export const PRODUCTS: Product[] = [
     name: "Viyara i.MX9 AI Kit",
     tagline: "Next-Gen Edge Computing",
     specs: ["ARM Cortex-A55 + M33", "Dedicated NPU for ML", "High-Speed Interfaces", "Advanced Security Features"],
-    image: "https://images.unsplash.com/photo-1591488320449-011701bb6704?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "/images/viyara-imx9-g.webp",
     badge: "New Arrival"
   },
   {
@@ -60,7 +60,7 @@ export const PRODUCTS: Product[] = [
     name: "Viyara QCS6490 SBC",
     tagline: "Premium AI & 5G Performance",
     specs: ["Qualcomm® QCS6490 Octa-core", "12 TOPS AI Engine", "5G Sub-6 & Wi-Fi 6E", "Triple ISP for Advanced Imaging", "Enterprise-Grade Lifecycle"],
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "/images/viyara-pico-imx7d-g.webp",
     badge: "Flagship"
   }
 ];
