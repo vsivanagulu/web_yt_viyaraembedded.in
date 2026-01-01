@@ -117,10 +117,34 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 export const CLIENTS: Client[] = [
-  { id: 1, name: "TechVision Systems", logo: "https://placehold.co/180x60/0f172a/64748b?text=TechVision" },
-  { id: 2, name: "Nexus Robotics", logo: "https://placehold.co/180x60/0f172a/64748b?text=Nexus+Robotics" },
-  { id: 3, name: "PureWave Audio", logo: "https://placehold.co/180x60/0f172a/64748b?text=PureWave" },
-  { id: 4, name: "AeroDynamics", logo: "https://placehold.co/180x60/0f172a/64748b?text=AeroDynamics" },
-  { id: 5, name: "Smart Grid Corp", logo: "https://placehold.co/180x60/0f172a/64748b?text=Smart+Grid" },
-  { id: 6, name: "MediTech Labs", logo: "https://placehold.co/180x60/0f172a/64748b?text=MediTech" },
+  {
+    id: 1,
+    name: "TechVision Systems",
+    logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='60' viewBox='0 0 180 60'%3E%3Crect width='180' height='60' fill='%230f172a'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%2364748b'%3ETechVision%3C/text%3E%3C/svg%3E"
+  },
+  {
+    id: 2,
+    name: "Nexus Robotics",
+    logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='60' viewBox='0 0 180 60'%3E%3Crect width='180' height='60' fill='%230f172a'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%2364748b'%3ENexus Robotics%3C/text%3E%3C/svg%3E"
+  },
+  {
+    id: 3,
+    name: "PureWave Audio",
+    logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='60' viewBox='0 0 180 60'%3E%3Crect width='180' height='60' fill='%230f172a'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%2364748b'%3EPureWave%3C/text%3E%3C/svg%3E"
+  },
+  {
+    id: 4,
+    name: "AeroDynamics",
+    logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='60' viewBox='0 0 180 60'%3E%3Crect width='180' height='60' fill='%230f172a'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%2364748b'%3EAeroDynamics%3C/text%3E%3C/svg%3E"
+  },
+  {
+    id: 5,
+    name: "Smart Grid Corp",
+    logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='60' viewBox='0 0 180 60'%3E%3Crect width='180' height='60' fill='%230f172a'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%2364748b'%3ESmart Grid%3C/text%3E%3C/svg%3E"
+  },
+  {
+    id: 6,
+    name: "MediTech Labs",
+    logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='60' viewBox='0 0 180 60'%3E%3Crect width='180' height='60' fill='%230f172a'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%2364748b'%3EMediTech%3C/text%3E%3C/svg%3E"
+  },
 ];
