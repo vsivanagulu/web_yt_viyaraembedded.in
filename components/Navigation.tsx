@@ -28,23 +28,20 @@ const Navigation: React.FC<NavigationProps> = ({ isScrolled }) => {
   };
 
   return (
-    <nav 
+    <nav
       className={`navbar ${isScrolled ? 'scrolled' : 'transparent'}`}
       aria-label="Main Navigation"
     >
       <div className="nav-container">
         <div className="nav-content">
-          <Link 
-            to="/" 
-            className="nav-logo-link" 
+          <Link
+            to="/"
+            className="nav-logo-link"
             aria-label="Viyara Embedded Home"
           >
-            <div className="logo-box" aria-hidden="true">
-              <Cpu className="text-white w-6 h-6" />
-            </div>
-            <span className="logo-text">VIYARA<span className="logo-highlight">EMBEDDED</span></span>
+            <img src="/images/viyara-logo.png" alt="VIYARA EMBEDDED" className="h-14 w-auto max-h-14 object-contain" style={{ height: '3.5rem' }} />
           </Link>
-          
+
           {/* Desktop Menu */}
           <div className="desktop-menu">
             {navLinks.map((link) => (
@@ -57,7 +54,7 @@ const Navigation: React.FC<NavigationProps> = ({ isScrolled }) => {
                 {link.name}
               </Link>
             ))}
-            <Link 
+            <Link
               to="/contact"
               className="quote-btn"
               aria-label="Get a Quote"

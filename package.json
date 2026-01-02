@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cp contact.php db_config.php .htaccess dist/",
+    "build": "vite build && cp contact.php subscribe.php db_config.php .htaccess SERVER_SETUP.md database.sql dist/",
     "preview": "vite preview"
   },
   "dependencies": {
