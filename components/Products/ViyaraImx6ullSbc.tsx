@@ -1,16 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, CheckCircle, Download, ShoppingCart } from 'lucide-react';
+import { PRODUCTS } from '../../constants';
 import './ProductDetail.css';
 
 const ViyaraImx6ullSbc: React.FC = () => {
-  const product = {
-    name: "Viyara i.MX6ULL SBC",
-    tagline: "Industrial Grade Efficiency",
-    specs: ["ARM Cortex-A7 @ 900MHz", "Low Power Consumption", "Industrial Temp Range", "Connectivity: CAN, UART, Ethernet"],
-    image: "https://yoctotutor.com/images/Trainings-siva/viyara-6ull_GREEN.webp",
-    badge: "Best Seller"
-  };
+  const product = PRODUCTS.find(p => p.id === 'imx6')!;
 
   return (
     <section className="pd-section">
@@ -18,13 +13,13 @@ const ViyaraImx6ullSbc: React.FC = () => {
         <Link to="/products" className="pd-back-link">
           <ArrowLeft /> Back to Products
         </Link>
-        
+
         <div className="pd-grid">
           {/* Image Section */}
           <div className="pd-image-box">
-            <img 
-              src={product.image} 
-              alt={product.name} 
+            <img
+              src={product.image}
+              alt={product.name}
               className="pd-img"
             />
           </div>
@@ -36,10 +31,10 @@ const ViyaraImx6ullSbc: React.FC = () => {
             </div>
             <h1 className="pd-title">{product.name}</h1>
             <p className="pd-tagline">{product.tagline}</p>
-            
+
             <div className="pd-description">
               <p>
-                Unlock the full potential of your embedded applications with the {product.name}. 
+                Unlock the full potential of your embedded applications with the {product.name}.
                 Designed for high-performance industrial and edge computing tasks, this Single Board Computer (SBC) allows you to
                 bypass complex hardware design and focus on your application logic.
               </p>
