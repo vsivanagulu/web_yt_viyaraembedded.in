@@ -9,34 +9,36 @@ const Clients: React.FC = () => {
         <p className="clients-label">
           Trusted By Industry Innovators
         </p>
-        
-        <div className="clients-scroll-area">
-           {/* Mask for fading edges */}
-           <div className="mask-left"></div>
-           <div className="mask-right"></div>
 
-           <div className="clients-track animate-scroll">
-              {/* Original List */}
-              {CLIENTS.map((client) => (
-                <div key={`orig-${client.id}`} className="client-item">
-                  <img
-                    src={client.logo}
-                    alt={`${client.name} logo`}
-                    className="client-logo"
-                  />
-                </div>
-              ))}
-              {/* Duplicate List for seamless loop */}
-              {CLIENTS.map((client) => (
-                <div key={`dup-${client.id}`} className="client-item">
-                  <img
-                    src={client.logo}
-                    alt={`${client.name} logo`}
-                    className="client-logo"
-                  />
-                </div>
-              ))}
-           </div>
+        <div className="clients-scroll-area">
+          {/* Mask for fading edges */}
+          <div className="mask-left"></div>
+          <div className="mask-right"></div>
+
+          <div className="clients-track animate-scroll">
+            {/* Original List */}
+            {CLIENTS.map((client) => (
+              <div key={`orig-${client.id}`} className="client-card">
+                <img
+                  src={client.logo}
+                  alt={`${client.name} logo`}
+                  className="client-logo"
+                />
+                <p className="client-name">{client.name}</p>
+              </div>
+            ))}
+            {/* Duplicate List for seamless loop */}
+            {CLIENTS.map((client) => (
+              <div key={`dup-${client.id}`} className="client-card">
+                <img
+                  src={client.logo}
+                  alt={`${client.name} logo`}
+                  className="client-logo"
+                />
+                <p className="client-name">{client.name}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

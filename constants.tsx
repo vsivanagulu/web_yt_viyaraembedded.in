@@ -119,32 +119,57 @@ export const TESTIMONIALS: Testimonial[] = [
 export const CLIENTS: Client[] = [
   {
     id: 1,
-    name: "TechVision Systems",
-    logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='60' viewBox='0 0 180 60'%3E%3Crect width='180' height='60' fill='%230f172a'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%2364748b'%3ETechVision%3C/text%3E%3C/svg%3E"
+    name: "SIGMA ADVANCED SYSTEMS",
+    logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='60' viewBox='0 0 200 60'%3E%3Crect width='200' height='60' fill='none'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='14' fill='%2394a3b8'%3ESIGMA ADVANCED%3C/text%3E%3C/svg%3E"
   },
   {
     id: 2,
-    name: "Nexus Robotics",
-    logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='60' viewBox='0 0 180 60'%3E%3Crect width='180' height='60' fill='%230f172a'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%2364748b'%3ENexus Robotics%3C/text%3E%3C/svg%3E"
+    name: "CAMBIUM NETWORKS",
+    logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='60' viewBox='0 0 200 60'%3E%3Crect width='200' height='60' fill='none'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='14' fill='%2394a3b8'%3ECAMBIUM%3C/text%3E%3C/svg%3E"
   },
   {
     id: 3,
-    name: "PureWave Audio",
-    logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='60' viewBox='0 0 180 60'%3E%3Crect width='180' height='60' fill='%230f172a'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%2364748b'%3EPureWave%3C/text%3E%3C/svg%3E"
+    name: "RETICULATE MICRO INC",
+    logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='60' viewBox='0 0 200 60'%3E%3Crect width='200' height='60' fill='none'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='14' fill='%2394a3b8'%3ERETICULATE%3C/text%3E%3C/svg%3E"
   },
   {
     id: 4,
-    name: "AeroDynamics",
-    logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='60' viewBox='0 0 180 60'%3E%3Crect width='180' height='60' fill='%230f172a'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%2364748b'%3EAeroDynamics%3C/text%3E%3C/svg%3E"
+    name: "KWALI INC",
+    logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='60' viewBox='0 0 200 60'%3E%3Crect width='200' height='60' fill='none'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='16' fill='%2394a3b8'%3EKWALI INC%3C/text%3E%3C/svg%3E"
   },
   {
     id: 5,
-    name: "Smart Grid Corp",
-    logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='60' viewBox='0 0 180 60'%3E%3Crect width='180' height='60' fill='%230f172a'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%2364748b'%3ESmart Grid%3C/text%3E%3C/svg%3E"
+    name: "PURE STORAGE",
+    logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='60' viewBox='0 0 200 60'%3E%3Crect width='200' height='60' fill='none'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='16' fill='%2394a3b8'%3EPURE STORAGE%3C/text%3E%3C/svg%3E"
   },
   {
     id: 6,
-    name: "MediTech Labs",
-    logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='60' viewBox='0 0 180 60'%3E%3Crect width='180' height='60' fill='%230f172a'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%2364748b'%3EMediTech%3C/text%3E%3C/svg%3E"
+    name: "SKF INDIA",
+    logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='60' viewBox='0 0 200 60'%3E%3Crect width='200' height='60' fill='none'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='16' fill='%2394a3b8'%3ESKF INDIA%3C/text%3E%3C/svg%3E"
   },
+  {
+    id: 7,
+    name: "THALES INDIA",
+    logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='60' viewBox='0 0 200 60'%3E%3Crect width='200' height='60' fill='none'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='16' fill='%2394a3b8'%3ETHALES%3C/text%3E%3C/svg%3E"
+  },
+  {
+    id: 8,
+    name: "LAWNWARE SOLUTIONS",
+    logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='60' viewBox='0 0 200 60'%3E%3Crect width='200' height='60' fill='none'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='14' fill='%2394a3b8'%3ELAWNWARE%3C/text%3E%3C/svg%3E"
+  },
+  {
+    id: 9,
+    name: "OTS CONSULTING",
+    logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='60' viewBox='0 0 200 60'%3E%3Crect width='200' height='60' fill='none'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='16' fill='%2394a3b8'%3EOTS%3C/text%3E%3C/svg%3E"
+  },
+  {
+    id: 10,
+    name: "ZENEXIM",
+    logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='60' viewBox='0 0 200 60'%3E%3Crect width='200' height='60' fill='none'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='16' fill='%2394a3b8'%3EZENEXIM%3C/text%3E%3C/svg%3E"
+  },
+  {
+    id: 11,
+    name: "VISIONTIR",
+    logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='60' viewBox='0 0 200 60'%3E%3Crect width='200' height='60' fill='none'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='16' fill='%2394a3b8'%3EVISIONTIR%3C/text%3E%3C/svg%3E"
+  }
 ];
