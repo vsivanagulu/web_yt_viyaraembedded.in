@@ -269,12 +269,18 @@
 
 /* Floating Badges */
 .badges-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, min-content);
   justify-content: center;
   gap: 1rem;
   margin-top: 2rem;
   width: 100%;
+}
+
+@media (min-width: 500px) {
+  .badges-grid {
+    grid-template-columns: repeat(3, min-content);
+  }
 }
 
 .floating-badge {
