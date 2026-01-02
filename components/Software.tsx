@@ -3,6 +3,7 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { Cpu, Code, Smartphone, Zap, Server, ClipboardList, PenTool, CheckCircle, Factory, RefreshCw } from 'lucide-react';
 import { SERVICES } from '../constants';
+import SEO from './SEO';
 import './Software.css';
 
 const Software: React.FC = () => {
@@ -44,14 +45,21 @@ const Software: React.FC = () => {
 
   return (
     <div className={`software-page ${isHomePage ? 'software-home-mode' : ''}`}>
+      {!isHomePage && (
+        <SEO
+          title="Software Services - Viyara Embedded Solutions"
+          description="Expert Embedded Software Development: From Bootloaders (U-Boot) and Linux Kernels to user-space applications and OTA updates."
+          url="https://viyaraembedded.in/services"
+        />
+      )}
       {/* Header Section */}
       {isHomePage ? (
         <div className="software-home-header">
-           <span className="software-hero-badge">Our Expertise</span>
-           <h2 className="software-hero-title">Embedded Software Services</h2>
-           <p className="software-hero-subtitle">
-             From bootloader to user space, we handle the complex layers of embedded software development so you can focus on your application.
-           </p>
+          <span className="software-hero-badge">Our Expertise</span>
+          <h2 className="software-hero-title">Embedded Software Services</h2>
+          <p className="software-hero-subtitle">
+            From bootloader to user space, we handle the complex layers of embedded software development so you can focus on your application.
+          </p>
         </div>
       ) : (
         /* Hero Section for Standalone Page */
@@ -111,7 +119,7 @@ const Software: React.FC = () => {
                   <p className="step-description">
                     {step.description}
                   </p>
-                  
+
                   {/* Desktop Connecting Line (Horizontal) - Connects to next step */}
                   {idx !== lifecycleSteps.length - 1 && (
                     <div className="timeline-connector-horizontal"></div>
@@ -126,7 +134,7 @@ const Software: React.FC = () => {
             </div>
           </div>
         </div>
-        
+
         {/* Tech Stack Banner */}
         <div className="tech-stack-container">
           <p className="tech-stack-label">Powering Solutions With</p>

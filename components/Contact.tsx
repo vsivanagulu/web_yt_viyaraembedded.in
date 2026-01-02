@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
+import SEO from './SEO';
 import './Contact.css';
 
 const Contact: React.FC = () => {
@@ -66,6 +67,13 @@ const Contact: React.FC = () => {
 
   return (
     <div className={`contact-page ${isHomePage ? 'contact-home-mode' : ''}`}>
+      {!isHomePage && (
+        <SEO
+          title="Contact Us - Viyara Embedded Solutions"
+          description="Ready to optimize your hardware with custom software solutions? Reach out to us for a consultation or quote."
+          url="https://viyaraembedded.in/contact"
+        />
+      )}
       {/* Header Section */}
       {isHomePage ? (
         <div className="contact-home-header">

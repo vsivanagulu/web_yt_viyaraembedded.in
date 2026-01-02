@@ -1,8 +1,8 @@
-
 import React from 'react';
 import { ChevronRight, ArrowRight } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { PRODUCTS } from '../../constants';
+import SEO from '../SEO';
 import './Products.css';
 
 const Products: React.FC = () => {
@@ -11,6 +11,13 @@ const Products: React.FC = () => {
 
   return (
     <div className="products-page">
+      {!isHomePage && (
+        <SEO
+          title="Products - Viyara Embedded Solutions"
+          description="Explore our range of System on Modules (SOMs) and Single Board Computers (SBCs) based on NXP i.MX processors."
+          url="https://viyaraembedded.in/products"
+        />
+      )}
       {/* Hero Section */}
       <div className={`products-hero ${isHomePage ? 'products-hero-home' : ''}`}>
         <div className="products-hero-bg-pattern" aria-hidden="true">
@@ -28,15 +35,15 @@ const Products: React.FC = () => {
           </p>
         </div>
       </div>
-      
+
       <section className="products-section">
         <div className="products-grid">
           {PRODUCTS.map((product) => (
             <div key={product.id} className="product-card">
               <div className="product-image-container">
-                <img 
-                  src={product.image} 
-                  alt={product.name} 
+                <img
+                  src={product.image}
+                  alt={product.name}
                   className="product-img"
                 />
                 <div className="product-badge">
@@ -48,7 +55,7 @@ const Products: React.FC = () => {
                   <h4 className="product-name">{product.name}</h4>
                 </div>
                 <p className="product-tagline">{product.tagline}</p>
-                
+
                 <ul className="product-specs">
                   {product.specs.map((spec, idx) => (
                     <li key={idx} className="product-spec-item">
@@ -57,15 +64,15 @@ const Products: React.FC = () => {
                     </li>
                   ))}
                 </ul>
-                
+
                 <div className="product-actions">
-                  <button 
+                  <button
                     className="btn-datasheet"
                     aria-label={`View datasheet for ${product.name}`}
                   >
                     View Datasheet
                   </button>
-                  <Link 
+                  <Link
                     to={`/products/${product.id}`}
                     className="btn-learn-more"
                     aria-label={`Learn more about ${product.name}`}

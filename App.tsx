@@ -2,6 +2,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navigation from './components/Navigation';
+import SEO from './components/SEO';
 import Hero from './components/Hero';
 import ServicesIntro from './components/ServicesIntro';
 import Products from './components/Products/Products';
@@ -63,6 +64,10 @@ const PageLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
 const HomePage = () => (
   <>
+    <SEO
+      title="VIYARAEMBEDDED - Embedded Linux & Hardware Solutions"
+      description="Custom Embedded Linux Solutions, Board Support Packages (BSP), and Yocto Project development for hardware innovation."
+    />
     <Hero />
     <ServicesIntro />
     <WhatWeDo />
