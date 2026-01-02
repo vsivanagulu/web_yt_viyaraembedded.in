@@ -71,7 +71,7 @@ const About: React.FC = () => {
 
           <div className="about-image-col">
             <div className="about-images-grid">
-              <img src="https://yoctotutor.com/images/viyara-images/ve-logo-tag.png" alt="Lab" className="about-img img-offset" />
+              <img src="/images/viyara-logo.png" alt="Lab" className="about-img img-offset" />
               <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Team" className="about-img" />
             </div>
           </div>
