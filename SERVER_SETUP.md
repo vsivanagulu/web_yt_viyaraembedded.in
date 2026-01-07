@@ -5,24 +5,23 @@ This guide focuses on hosting the backend (PHP + MySQL) for Viyara Embedded Solu
 ## 1. Database Setup (MySQL)
 
 1.  **Create a Database**
-    Access your hosting provider (cPanel/phpMyAdmin) and create a new database (e.g., `viyara_db`).
+    Access your hosting provider (cPanel/phpMyAdmin) and create a new database.
 
 2.  **Import Schema**
-    Run the SQL commands from `database.sql` to create the required tables:
+    Run the SQL commands from `api/database.sql` to create the required table:
     - `contacts` (stores contact form submissions)
-    - `subscribers` (stores newsletter emails)
 
-    *You can import `database.sql` directly using phpMyAdmin's "Import" tab.*
+    *You can import `api/database.sql` directly using phpMyAdmin's "Import" tab.*
 
 ## 2. Backend Configuration
 
-The PHP files (`contact.php`, `subscribe.php`) require a configuration file to connect to the database.
+The PHP file `api/contact.php` requires configuration.
 
-1.  **Create `db_config.php`**
-    In your server's public folder (where you upload the site), create a file named `db_config.php`.
+1.  **Configuration File**
+    The configuration is located at `api/db_config.php`.
 
-2.  **Add Credentials**
-    Paste the following code and update with your actual database details:
+2.  **Credentials**
+    Ensure this file exists in `api/` and contains:
 
     ```php
     <?php
@@ -33,21 +32,20 @@ The PHP files (`contact.php`, `subscribe.php`) require a configuration file to c
     ?>
     ```
 
-    > **Security Note:** This file is automatically protected from public access by the `.htaccess` file.
-
 ## 3. Uploading Files
 
 Upload the contents of the `dist/` folder to your server's `public_html` or `www` directory. 
-Ensure the following files are present:
+**Crucially, ensure the `api` folder is uploaded.**
+
+Required Structure on Server:
 - `index.html`
 - `assets/`
-- `contact.php`
-- `subscribe.php`
+- `api/`
+    - `contact.php`
+    - `db_config.php`
 - `.htaccess`
-- `db_config.php` (Manually created)
 
 ## 4. Troubleshooting
 
-- **500 Internal Server Error**: Check your `db_config.php` credentials.
-- **403 Forbidden**: Pass. The `.htaccess` is doing its job protecting sensitive files.
-- **Emails not saving**: Ensure the `contacts` or `subscribers` tables exist and match the `database.sql` schema.
+- **500 Internal Server Error**: Check your `api/db_config.php` credentials.
+- **Emails not saving**: Ensure the `contacts` table exists.

@@ -39,7 +39,7 @@ const Navigation: React.FC<NavigationProps> = ({ isScrolled }) => {
             className="nav-logo-link"
             aria-label="Viyara Embedded Home"
           >
-            <img src="/images/viyara-logo.png" alt="VIYARA EMBEDDED" className="h-14 w-auto max-h-14 object-contain" style={{ height: '3.5rem' }} />
+            <img src="/images/viyara-logo.png" alt="VIYARA EMBEDDED" className="h-10 w-auto max-h-12 object-contain" style={{ height: '2.5rem' }} />
           </Link>
 
           {/* Desktop Menu */}
