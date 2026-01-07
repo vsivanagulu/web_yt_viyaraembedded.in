@@ -59,7 +59,7 @@ const Footer: React.FC = () => (
             if (statusMsg) statusMsg.textContent = 'Subscribing...';
 
             try {
-              const res = await fetch('/subscribe.php', {
+              const res = await fetch('/api/subscribe.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email })
